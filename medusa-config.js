@@ -49,6 +49,7 @@ const plugins = [
       autoRebuild: true,
       develop: {
         open: process.env.OPEN_BROWSER !== "false",
+        host: "0.0.0.0" //Critical
       },
     },
   },
