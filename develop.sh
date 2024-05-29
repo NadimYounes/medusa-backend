@@ -2,4 +2,6 @@
 
 medusa migrations run
 
-medusa $1
+npx @medusajs/medusa-cli@latest seed -f ./data/seed.json
+
+yarn dev

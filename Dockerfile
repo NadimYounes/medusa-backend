@@ -13,14 +13,14 @@ RUN apt-get update && apt-get install -y python3 python3-pip
 # Symlink python to python3
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-RUN npm install -g npm@latest
+# Install dependencies
+RUN yarn --network-timeout 1000000
 
-RUN npm install -g @medusajs/medusa-cli@latest
-
-RUN npm install --loglevel=error
+# Install the medusa-cli
+RUN yarn global add @medusajs/medusa-cli@latest
 
 COPY . .
 
 RUN chmod +x develop.sh
 
-ENTRYPOINT ["./develop.sh", "develop"]
+ENTRYPOINT ["./develop.sh"]
